@@ -15,25 +15,10 @@ export class ActionMenu {
   items = input.required<ActionMenuItem[]>();
 
   protected readonly open = signal(false);
-  protected readonly menuStyle = signal<Record<string, string>>({});
 
   toggle(event: MouseEvent): void {
     event.stopPropagation();
-    if (this.open()) {
-      this.close();
-      return;
-    }
-    const trigger = (event.currentTarget as HTMLElement).getBoundingClientRect();
-    const menuWidth = 190;
-    const left = Math.min(trigger.right - menuWidth, window.innerWidth - menuWidth - 8);
-
-    this.menuStyle.set({
-      position: 'fixed',
-      top: `${trigger.bottom + 4}px`,
-      left: `${Math.max(left, 8)}px`,
-      width: `${menuWidth}px`,
-    });
-    this.open.set(true);
+    this.open.update((value) => !value);
   }
 
   select(item: ActionMenuItem): void {

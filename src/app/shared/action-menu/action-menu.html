@@ -12,7 +12,7 @@
     <span class="dot"></span>
   </button>
   @if (open()) {
-    <div class="menu" [style]="menuStyle()" (click)="$event.stopPropagation()">
+    <div class="menu" (click)="$event.stopPropagation()">
       @for (item of items(); track item.action) {
         <button type="button" class="menu-item" [class.danger]="item.danger" (click)="select(item)">
           {{ item.label }}
