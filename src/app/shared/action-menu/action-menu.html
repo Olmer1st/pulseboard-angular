@@ -1,0 +1,23 @@
+<div class="action-menu">
+  <button
+    type="button"
+    class="trigger"
+    (click)="toggle($event)"
+    aria-haspopup="true"
+    [attr.aria-expanded]="open()"
+    aria-label="Row actions"
+  >
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </button>
+  @if (open()) {
+    <div class="menu" [style]="menuStyle()" (click)="$event.stopPropagation()">
+      @for (item of items(); track item.action) {
+        <button type="button" class="menu-item" [class.danger]="item.danger" (click)="select(item)">
+          {{ item.label }}
+        </button>
+      }
+    </div>
+  }
+</div>

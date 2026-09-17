@@ -1,0 +1,127 @@
+<div class="settings-page">
+  <section class="card settings-section">
+    <header class="card-header">
+      <h2>Preferences</h2>
+      <p>General account and localization preferences.</p>
+    </header>
+
+    <div class="field-grid">
+      <label class="field">
+        <span class="field-label">Language</span>
+        <select [value]="language()" (change)="setLanguage($event)">
+          <option value="en-US">English (United States)</option>
+          <option value="en-GB">English (United Kingdom)</option>
+          <option value="fr-FR">Français</option>
+          <option value="de-DE">Deutsch</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Timezone</span>
+        <select [value]="timezone()" (change)="setTimezone($event)">
+          <option value="America/New_York">Eastern Time (ET)</option>
+          <option value="America/Los_Angeles">Pacific Time (PT)</option>
+          <option value="Europe/London">London (GMT)</option>
+          <option value="Asia/Singapore">Singapore (SGT)</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="card settings-section">
+    <header class="card-header">
+      <h2>Notifications</h2>
+      <p>Choose what PulseBoard should notify you about.</p>
+    </header>
+
+    <ul class="toggle-list">
+      <li>
+        <label class="toggle">
+          <input type="checkbox" [checked]="emailNotifications()" (change)="emailNotifications.set(!emailNotifications())" />
+          <span class="switch" aria-hidden="true"></span>
+          <span class="toggle-copy">
+            <span class="toggle-title">Email notifications</span>
+            <span class="toggle-desc">Receive email updates about campaign performance.</span>
+          </span>
+        </label>
+      </li>
+      <li>
+        <label class="toggle">
+          <input type="checkbox" [checked]="weeklySummary()" (change)="weeklySummary.set(!weeklySummary())" />
+          <span class="switch" aria-hidden="true"></span>
+          <span class="toggle-copy">
+            <span class="toggle-title">Weekly summary</span>
+            <span class="toggle-desc">A digest of your account's performance every Monday.</span>
+          </span>
+        </label>
+      </li>
+      <li>
+        <label class="toggle">
+          <input type="checkbox" [checked]="alertNotifications()" (change)="alertNotifications.set(!alertNotifications())" />
+          <span class="switch" aria-hidden="true"></span>
+          <span class="toggle-copy">
+            <span class="toggle-title">Alert notifications</span>
+            <span class="toggle-desc">Get notified immediately when a critical alert fires.</span>
+          </span>
+        </label>
+      </li>
+      <li>
+        <label class="toggle">
+          <input type="checkbox" [checked]="productUpdates()" (change)="productUpdates.set(!productUpdates())" />
+          <span class="switch" aria-hidden="true"></span>
+          <span class="toggle-copy">
+            <span class="toggle-title">Product updates</span>
+            <span class="toggle-desc">Occasional news about new PulseBoard features.</span>
+          </span>
+        </label>
+      </li>
+    </ul>
+  </section>
+
+  <section class="card settings-section">
+    <header class="card-header">
+      <h2>Display</h2>
+      <p>Personalize how PulseBoard looks on this device.</p>
+    </header>
+
+    <fieldset class="option-group">
+      <legend>Theme</legend>
+      <label class="option" [class.selected]="theme() === 'light'">
+        <input type="radio" name="theme" value="light" [checked]="theme() === 'light'" (change)="setTheme('light')" />
+        Light
+      </label>
+      <label class="option" [class.selected]="theme() === 'dark'">
+        <input type="radio" name="theme" value="dark" [checked]="theme() === 'dark'" (change)="setTheme('dark')" />
+        Dark
+      </label>
+      <label class="option" [class.selected]="theme() === 'system'">
+        <input type="radio" name="theme" value="system" [checked]="theme() === 'system'" (change)="setTheme('system')" />
+        System
+      </label>
+    </fieldset>
+
+    <fieldset class="option-group">
+      <legend>Density</legend>
+      <label class="option" [class.selected]="density() === 'comfortable'">
+        <input
+          type="radio"
+          name="density"
+          value="comfortable"
+          [checked]="density() === 'comfortable'"
+          (change)="setDensity('comfortable')"
+        />
+        Comfortable
+      </label>
+      <label class="option" [class.selected]="density() === 'compact'">
+        <input
+          type="radio"
+          name="density"
+          value="compact"
+          [checked]="density() === 'compact'"
+          (change)="setDensity('compact')"
+        />
+        Compact
+      </label>
+    </fieldset>
+  </section>
+</div>

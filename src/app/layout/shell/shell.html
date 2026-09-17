@@ -1,0 +1,62 @@
+<div class="shell">
+  <aside class="sidebar" [class.open]="mobileNavOpen()">
+    <div class="sidebar-brand">
+      <span class="brand-mark">P</span>
+      <span class="brand-name">PulseBoard</span>
+      <button type="button" class="sidebar-close" (click)="closeNav()" aria-label="Close navigation">
+        <app-icon name="x" />
+      </button>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Primary">
+      @for (item of navItems; track item.route) {
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          class="nav-link"
+          (click)="closeNav()"
+        >
+          <app-icon [name]="item.icon" />
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="sidebar-footer">
+      <span class="avatar" aria-hidden="true">DK</span>
+      <div class="profile-info">
+        <span class="profile-name">Dana Kim</span>
+        <span class="profile-role">Growth Lead</span>
+      </div>
+    </div>
+  </aside>
+
+  @if (mobileNavOpen()) {
+    <button type="button" class="nav-overlay" (click)="closeNav()" aria-label="Close navigation"></button>
+  }
+
+  <div class="shell-main">
+    <header class="topbar">
+      <button type="button" class="hamburger" (click)="openNav()" aria-label="Open navigation">
+        <app-icon name="menu" />
+      </button>
+
+      <h1 class="page-title">{{ pageHeading() }}</h1>
+
+      <label class="topbar-search">
+        <app-icon name="search" />
+        <input type="search" placeholder="Search campaigns, products…" aria-label="Search" />
+      </label>
+
+      <button type="button" class="icon-button" aria-label="Notifications">
+        <app-icon name="bell" />
+      </button>
+
+      <span class="avatar" aria-hidden="true">DK</span>
+    </header>
+
+    <main class="content">
+      <router-outlet />
+    </main>
+  </div>
+</div>

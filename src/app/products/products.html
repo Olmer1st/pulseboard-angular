@@ -1,0 +1,27 @@
+<div class="products-page">
+  <div class="product-grid">
+    @for (product of products; track product.id) {
+      <article class="card product-card">
+        <div class="product-thumb" aria-hidden="true">{{ product.name.charAt(0) }}</div>
+        <div class="product-info">
+          <h3>{{ product.name }}</h3>
+          <p class="product-meta">{{ product.sku }} · {{ product.category }}</p>
+        </div>
+        <dl class="product-stats">
+          <div>
+            <dt>Price</dt>
+            <dd>{{ product.price | currency }}</dd>
+          </div>
+          <div>
+            <dt>Units sold</dt>
+            <dd>{{ product.unitsSold }}</dd>
+          </div>
+          <div>
+            <dt>Stock</dt>
+            <dd>{{ product.stock }}</dd>
+          </div>
+        </dl>
+      </article>
+    }
+  </div>
+</div>

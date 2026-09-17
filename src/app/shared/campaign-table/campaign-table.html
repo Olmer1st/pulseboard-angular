@@ -1,0 +1,33 @@
+<div class="table-scroll">
+  <table class="campaign-table">
+    <thead>
+      <tr>
+        <th class="col-name">Campaign</th>
+        <th class="col-status">Status</th>
+        <th class="col-num">Spend</th>
+        <th class="col-num">Revenue</th>
+        <th class="col-num">ROAS</th>
+        <th class="col-updated">Updated</th>
+        <th class="col-actions"><span class="sr-only">Actions</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (campaign of campaigns(); track campaign.id) {
+        <tr>
+          <td class="col-name">
+            <span class="campaign-name">{{ campaign.name }}</span>
+            <span class="campaign-channel">{{ campaign.channel }}</span>
+          </td>
+          <td class="col-status"><app-status-badge [status]="campaign.status" /></td>
+          <td class="col-num">{{ campaign.spend | currency: 'USD' : 'symbol' : '1.0-0' }}</td>
+          <td class="col-num">{{ campaign.revenue | currency: 'USD' : 'symbol' : '1.0-0' }}</td>
+          <td class="col-num">{{ roas(campaign) }}</td>
+          <td class="col-updated">{{ campaign.updated | date: 'MMM d' }}</td>
+          <td class="col-actions">
+            <app-action-menu [items]="rowActions()" />
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

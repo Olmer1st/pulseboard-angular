@@ -1,0 +1,90 @@
+<svg
+  class="icon"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  @switch (name()) {
+    @case ('grid') {
+      <rect x="3.5" y="3.5" width="7" height="7" rx="1.2" />
+      <rect x="13.5" y="3.5" width="7" height="7" rx="1.2" />
+      <rect x="3.5" y="13.5" width="7" height="7" rx="1.2" />
+      <rect x="13.5" y="13.5" width="7" height="7" rx="1.2" />
+    }
+    @case ('megaphone') {
+      <path d="M3 10v4a1 1 0 0 0 1 1h2l1 5h2l-1-5h2l8 4V6l-8 4H4a1 1 0 0 0-1 1z" />
+      <path d="M19 9a3 3 0 0 1 0 6" />
+    }
+    @case ('box') {
+      <path d="M21 8 12 3 3 8l9 5 9-5Z" />
+      <path d="M3 8v9l9 5 9-5V8" />
+      <path d="M12 13v9" />
+    }
+    @case ('bar-chart') {
+      <line x1="5" y1="20" x2="5" y2="11" />
+      <line x1="12" y1="20" x2="12" y2="5" />
+      <line x1="19" y1="20" x2="19" y2="14" />
+    }
+    @case ('settings') {
+      <circle cx="12" cy="12" r="3.2" />
+      <path
+        d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2.06 2.06 0 1 1-2.92 2.92l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V19.6a2.06 2.06 0 0 1-4.12 0v-.09a1.7 1.7 0 0 0-1.11-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2.06 2.06 0 1 1-2.92-2.92l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H4.4a2.06 2.06 0 0 1 0-4.12h.09a1.7 1.7 0 0 0 1.55-1.11 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2.06 2.06 0 1 1 2.92-2.92l.06.06a1.7 1.7 0 0 0 1.87.34h.08a1.7 1.7 0 0 0 1-1.55V4.4a2.06 2.06 0 0 1 4.12 0v.09a1.7 1.7 0 0 0 1 1.55h.09a1.7 1.7 0 0 0 1.87-.34l.06-.06a2.06 2.06 0 1 1 2.92 2.92l-.06.06a1.7 1.7 0 0 0-.34 1.87v.08a1.7 1.7 0 0 0 1.55 1h.13a2.06 2.06 0 0 1 0 4.12h-.09a1.7 1.7 0 0 0-1.55 1Z"
+      />
+    }
+    @case ('dollar-sign') {
+      <line x1="12" y1="2" x2="12" y2="22" />
+      <path d="M17 6.5c0-1.9-2-3-5-3s-5 1.2-5 3 2 2.6 5 3.1 5 1.4 5 3.4-2 3-5 3-5-1.1-5-3" />
+    }
+    @case ('shopping-cart') {
+      <circle cx="9" cy="20" r="1.4" />
+      <circle cx="18" cy="20" r="1.4" />
+      <path d="M2.5 3h2.4l2.2 11.4a2 2 0 0 0 2 1.6h8a2 2 0 0 0 2-1.6L21 7H6" />
+    }
+    @case ('target') {
+      <circle cx="12" cy="12" r="8.2" />
+      <circle cx="12" cy="12" r="4.6" />
+      <circle cx="12" cy="12" r="1" fill="currentColor" />
+    }
+    @case ('search') {
+      <circle cx="10.8" cy="10.8" r="6.3" />
+      <line x1="15.5" y1="15.5" x2="20.5" y2="20.5" />
+    }
+    @case ('bell') {
+      <path d="M6 9.5a6 6 0 0 1 12 0c0 4 1.5 5.5 1.5 5.5h-15S6 13.5 6 9.5Z" />
+      <path d="M10.3 19a1.9 1.9 0 0 0 3.4 0" />
+    }
+    @case ('chevron-down') {
+      <polyline points="5.5 8.5 12 15 18.5 8.5" />
+    }
+    @case ('menu') {
+      <line x1="3.5" y1="6.5" x2="20.5" y2="6.5" />
+      <line x1="3.5" y1="12" x2="20.5" y2="12" />
+      <line x1="3.5" y1="17.5" x2="20.5" y2="17.5" />
+    }
+    @case ('x') {
+      <line x1="5.5" y1="5.5" x2="18.5" y2="18.5" />
+      <line x1="18.5" y1="5.5" x2="5.5" y2="18.5" />
+    }
+    @case ('arrow-up') {
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="6 11 12 5 18 11" />
+    }
+    @case ('arrow-down') {
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <polyline points="6 13 12 19 18 13" />
+    }
+    @case ('alert-triangle') {
+      <path d="M12 3.5 22 20.5H2Z" />
+      <line x1="12" y1="10" x2="12" y2="14.5" />
+      <circle cx="12" cy="17.3" r="0.6" fill="currentColor" />
+    }
+    @case ('user') {
+      <circle cx="12" cy="8.2" r="3.7" />
+      <path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" />
+    }
+  }
+</svg>

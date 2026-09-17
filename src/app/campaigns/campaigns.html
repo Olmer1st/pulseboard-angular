@@ -1,0 +1,32 @@
+<div class="campaigns-page">
+  <div class="toolbar">
+    <label class="search-field">
+      <app-icon name="search" />
+      <input
+        type="search"
+        placeholder="Search campaigns…"
+        aria-label="Search campaigns"
+        [value]="search()"
+        (input)="onSearchInput($event)"
+      />
+    </label>
+
+    <label class="filter-field">
+      <span class="sr-only">Filter by status</span>
+      <select [value]="statusFilter()" (change)="onStatusChange($event)">
+        @for (option of statusOptions; track option.value) {
+          <option [value]="option.value">{{ option.label }}</option>
+        }
+      </select>
+    </label>
+
+    <span class="result-count">{{ filteredCampaigns().length }} campaigns</span>
+  </div>
+
+  <section class="card table-card">
+    <app-campaign-table [campaigns]="filteredCampaigns()" />
+    @if (filteredCampaigns().length === 0) {
+      <p class="empty-state">No campaigns match your filters.</p>
+    }
+  </section>
+</div>

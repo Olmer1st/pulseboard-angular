@@ -1,0 +1,161 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px 0;
+
+  h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+.card-subtitle {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.chart-card,
+.alerts-card,
+.table-card,
+.activity-card {
+  padding-bottom: 8px;
+}
+
+.chart-card {
+  padding: 0 20px 20px;
+
+  app-revenue-chart {
+    margin-top: 12px;
+  }
+}
+
+.alert-list,
+.activity-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.alert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+
+  app-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-size: 16px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &.critical {
+    color: var(--color-danger);
+  }
+
+  &.warning {
+    color: var(--color-warning);
+  }
+
+  &.info {
+    color: var(--color-text-muted);
+  }
+}
+
+.alert-body {
+  min-width: 0;
+}
+
+.alert-time {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.activity-list li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+
+  &:hover {
+    background: var(--color-bg);
+  }
+}
+
+.activity-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  align-self: center;
+}
+
+.activity-text {
+  margin: 0;
+  min-width: 0;
+}
+
+.activity-time {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1199px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-list li {
+    grid-template-columns: auto 1fr;
+
+    .activity-time {
+      grid-column: 2;
+    }
+  }
+}

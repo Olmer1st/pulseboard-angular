@@ -1,0 +1,58 @@
+<div class="dashboard">
+  <section class="kpi-grid">
+    @for (metric of kpis; track metric.id) {
+      <app-kpi-card [metric]="metric" />
+    }
+  </section>
+
+  <div class="dashboard-grid">
+    <section class="card chart-card">
+      <header class="card-header">
+        <h2>Revenue &amp; Traffic</h2>
+        <span class="card-subtitle">Last 7 days</span>
+      </header>
+      <app-revenue-chart [data]="traffic" />
+    </section>
+
+    <section class="card alerts-card">
+      <header class="card-header">
+        <h2>Alerts</h2>
+      </header>
+      <ul class="alert-list">
+        @for (alert of alerts; track alert.id) {
+          <li class="alert-item" [class]="alert.severity">
+            <app-icon name="alert-triangle" />
+            <div class="alert-body">
+              <p>{{ alert.message }}</p>
+              <span class="alert-time">{{ alert.timestamp }}</span>
+            </div>
+          </li>
+        }
+      </ul>
+    </section>
+  </div>
+
+  <section class="card table-card">
+    <header class="card-header">
+      <h2>Campaign Performance</h2>
+    </header>
+    <app-campaign-table [campaigns]="topCampaigns" />
+  </section>
+
+  <section class="card activity-card">
+    <header class="card-header">
+      <h2>Recent Activity</h2>
+    </header>
+    <ul class="activity-list">
+      @for (item of activity; track item.id) {
+        <li>
+          <span class="activity-dot" aria-hidden="true"></span>
+          <p class="activity-text">
+            <strong>{{ item.actor }}</strong> {{ item.action }} <strong>{{ item.target }}</strong>
+          </p>
+          <span class="activity-time">{{ item.timestamp }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+</div>

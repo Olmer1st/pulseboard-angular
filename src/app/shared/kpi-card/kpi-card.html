@@ -1,0 +1,14 @@
+<article class="kpi-card">
+  <header class="kpi-header">
+    <span class="kpi-icon">
+      <app-icon [name]="metric().icon" />
+    </span>
+    <span class="kpi-label">{{ metric().label }}</span>
+  </header>
+  <p class="kpi-value">{{ metric().value }}</p>
+  <p class="kpi-trend" [class.positive]="isPositive()" [class.negative]="!isPositive()">
+    <app-icon [name]="isPositive() ? 'arrow-up' : 'arrow-down'" />
+    <span>{{ metric().trend > 0 ? '+' : '' }}{{ metric().trend }}%</span>
+    <span class="kpi-trend-label">{{ metric().trendLabel }}</span>
+  </p>
+</article>

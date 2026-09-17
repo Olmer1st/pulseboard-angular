@@ -1,0 +1,22 @@
+<div class="reports-page">
+  <section class="card chart-card">
+    <header class="card-header">
+      <h2>Revenue Trend</h2>
+    </header>
+    <app-revenue-chart [data]="traffic" />
+  </section>
+
+  <section class="card report-list-card">
+    <header class="card-header">
+      <h2>Saved Reports</h2>
+    </header>
+    <ul class="report-list">
+      @for (report of reports; track report.id) {
+        <li>
+          <span class="report-name">{{ report.name }}</span>
+          <span class="report-period">{{ report.period }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+</div>
