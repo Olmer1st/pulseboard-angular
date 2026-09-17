@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import {
   NavigationEnd,
@@ -32,18 +32,14 @@ export class Shell {
     { initialValue: 'Dashboard' },
   );
 
-  constructor() {
-    effect(() => {
-      document.body.classList.toggle('nav-open', this.mobileNavOpen());
-    });
-  }
-
   openNav(): void {
     this.mobileNavOpen.set(true);
+    document.body.classList.add('nav-open');
   }
 
   closeNav(): void {
     this.mobileNavOpen.set(false);
+    document.body.classList.remove('nav-open');
   }
 
   private currentHeading(): string {

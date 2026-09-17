@@ -32,7 +32,7 @@
   </aside>
 
   @if (mobileNavOpen()) {
-    <button type="button" class="nav-overlay" (click)="closeNav()" aria-label="Close navigation"></button>
+    <button type="button" class="nav-overlay" (click)="mobileNavOpen.set(false)" aria-label="Close navigation"></button>
   }
 
   <div class="shell-main">
